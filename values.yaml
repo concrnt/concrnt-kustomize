@@ -1,0 +1,74 @@
+server:
+  dsn: "host=db user=postgres password=postgres dbname=concrnt port=5432 sslmode=disable"
+  redisAddr: "redis:6379"
+  memcachedAddr: "memcached:11211"
+  captchaSitekey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+  captchaSecret: "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  dbstorage: "32Gi"
+  redisstorage: "8Gi"
+  repositoryStorage: "32Gi"
+
+profile:
+  nickname: concrnt-domain
+  description: domain description
+  logo: ""
+  wordmark: ""
+  themeColor: "#20193b"
+  tosURL: ""
+  maintainerName: changeme
+  maintainerEmail: changeme@example.com
+
+backup:
+  enabled: true
+  cron: "* 20 * * *"
+  s3key: "s3://examplebucket/"
+  aws_access_key_id: ""
+  aws_secret_access_key: ""
+  aws_default_region: "ap-northeast-1"
+
+monitoring:
+  enabled: false
+  metrics:
+    enabled: false
+    endpoint: ""
+    password: ""
+    username: ""
+  traces:
+    enabled: false
+    endpoint: ""
+    password: ""
+    username: ""
+
+concrnt:
+  servicetype: ClusterIP
+  appimage: ghcr.io/totegamma/ccapi:latest
+  gatewayimage: ghcr.io/totegamma/ccgateway:latest
+  webimage: ghcr.io/totegamma/ccwebui:latest
+  fqdn: example.tld
+  registration: invite
+  privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  dimension: concrnt-devnet
+
+mediaserver:
+  enabled: false
+  image: ghcr.io/totegamma/cc-media-server:main
+  bucketName: YOUR_BUCKET_NAME
+  endpointUrl: https://xxxxxx.r2.cloudflarestorage.com
+  accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  accessKeySecret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  publicBaseUrl: https://pub-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.dev/
+  region: auto
+  quota: "1000000000"
+
+activitypub:
+  enabled: false
+  image: ghcr.io/concrnt/ccworld-ap-bridge:latest
+  privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+url-summary:
+  enabled: false
+  LB_LISTEN_PORT: 80
+  APP_TARGET_PORT: 8080
+  CORS: ""
+  LB_TYPE: ClusterIP
+

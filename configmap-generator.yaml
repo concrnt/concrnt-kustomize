@@ -1,0 +1,9 @@
+apiVersion: builtin
+kind: ConfigMapGenerator
+metadata:
+  name: concrnt-static
+behavior: replace
+files:
+  - ./cm-files/tos.txt
+  - ./cm-files/code-of-conduct.txt
+  - ./cm-files/register-template.json
