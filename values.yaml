@@ -13,8 +13,7 @@ profile:
   description: domain description
   logo: ""
   wordmark: ""
-  themeColor: "#20193b"
-  tosURL: ""
+  themeColor: "#0476d9"
   maintainerName: changeme
   maintainerEmail: changeme@example.com
 
