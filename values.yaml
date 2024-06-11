@@ -1,14 +1,40 @@
 server:
+  # 各種ミドルウェアのアドレス等の設定
   dsn: "host=db user=postgres password=postgres dbname=concrnt port=5432 sslmode=disable"
   redisAddr: "redis:6379"
   memcachedAddr: "memcached:11211"
+  # キャプチャの設定
+  # Google reCAPTCHAのページ: https://www.google.com/recaptcha/about/
+  # でv2のreCAPTCHAを登録し、サイトキーとシークレットキーを取得します。
+  # 以下はテスト用のキーが入っています。テスト用途であればこのまま利用できます。
   captchaSitekey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
   captchaSecret: "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  # 各種ストレージ容量の設定
   dbstorage: "32Gi"
   redisstorage: "8Gi"
   repositoryStorage: "32Gi"
 
+concrnt:
+  servicetype: ClusterIP
+  # 各種コンテナのイメージの設定
+  appimage: ghcr.io/totegamma/ccapi:latest
+  gatewayimage: ghcr.io/totegamma/ccgateway:latest
+  webimage: ghcr.io/totegamma/ccwebui:latest
+  # サーバーのFQDNの設定
+  # 一度起動したら変更しないでください
+  fqdn: example.tld
+  # 誰でも登録可能: open / インバイトコードが必要: invite
+  registration: open
+  # サーバーが利用するプライベートキーの設定
+  # concrnt.worldの開発者ツール(https://concrnt.world/devtool)のIdentityGeneratorタブから簡単に生成できます。
+  privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  # サーバーが参加するネットワークの設定
+  # テスト用途であれば 'concrnt-devnet'を、本番用途であれば 'concrnt-mainnet'を指定します。
+  # 一度起動したら変更しないでください
+  dimension: concrnt-devnet
+
 profile:
+  # サーバーの各種プロフィールの設定
   nickname: concrnt-domain
   description: domain description
   logo: ""
@@ -18,14 +44,19 @@ profile:
   maintainerEmail: changeme@example.com
 
 backup:
-  enabled: true
+  # サーバーのバックアップの設定
+  enabled: false
+  # バックアップを取る間隔をcron形式で指定します。
   cron: "* 20 * * *"
+  # バックアップを保存する場所(AWS S3のバケット名)を指定します。
   s3key: "s3://examplebucket/"
   aws_access_key_id: ""
   aws_secret_access_key: ""
   aws_default_region: "ap-northeast-1"
 
 monitoring:
+  # サーバーのモニタリングの設定
+  # 以下の設定先にメトリクス/トレースがremote-writeされます。
   enabled: false
   metrics:
     enabled: false
@@ -38,16 +69,7 @@ monitoring:
     password: ""
     username: ""
 
-concrnt:
-  servicetype: ClusterIP
-  appimage: ghcr.io/totegamma/ccapi:latest
-  gatewayimage: ghcr.io/totegamma/ccgateway:latest
-  webimage: ghcr.io/totegamma/ccwebui:latest
-  fqdn: example.tld
-  registration: invite
-  privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  dimension: concrnt-devnet
-
+# ドメインでメディアサーバーを提供する場合の設定
 mediaserver:
   enabled: false
   image: ghcr.io/totegamma/cc-media-server:main
@@ -59,13 +81,20 @@ mediaserver:
   region: auto
   quota: "1000000000"
 
+# ドメインでActivitypub連携を提供する場合の設定
+# 有効にすると、ドメインでActivitypub経由の投稿の受信/送信が可能になります。
+# Activitypubの仕様のカバー率は完全ではありません。また、Activitypubの仕様上やり取りするメッセージのコピーを逐次保存する必要があるため、
+# メモリやストレージの使用量が増加します。
 activitypub:
   enabled: false
   image: ghcr.io/concrnt/ccworld-ap-bridge:latest
   privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+
+# ドメインでURLのプレビューを提供する場合の設定
+# 基本的に有効化することがおすすめです。
 url-summary:
-  enabled: false
+  enabled: true
   LB_LISTEN_PORT: 80
   APP_TARGET_PORT: 8080
   CORS: ""
