@@ -47,7 +47,7 @@ backup:
   # サーバーのバックアップの設定
   enabled: false
   # バックアップを取る間隔をcron形式で指定します。
-  cron: "* 20 * * *"
+  cron: "0 20 * * *"
   # バックアップを保存する場所(AWS S3のバケット名)を指定します。
   s3key: "s3://examplebucket/"
   aws_access_key_id: ""
