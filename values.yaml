@@ -91,12 +91,9 @@ activitypub:
   privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
-# ドメインでURLのプレビューを提供する場合の設定
+# ドメインでURLのプレビューやimage proxyを提供する場合の設定
 # 基本的に有効化することがおすすめです。
-url-summary:
+hyperproxy:
   enabled: true
-  LB_LISTEN_PORT: 80
-  APP_TARGET_PORT: 8080
-  CORS: ""
-  LB_TYPE: ClusterIP
+  image: ghcr.io/concrnt/hyperproxy:latest
 
