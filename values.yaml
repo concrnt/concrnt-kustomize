@@ -9,6 +9,10 @@ server:
   # 以下はテスト用のキーが入っています。テスト用途であればこのまま利用できます。
   captchaSitekey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
   captchaSecret: "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  # 通知送信用キーの設定
+  # `conctl generateVapidKeys` で生成できます
+  vapidPrivateKey: ""
+  vapidPublicKey: ""
   # 各種ストレージ容量の設定
   dbstorage: "32Gi"
   redisstorage: "8Gi"
