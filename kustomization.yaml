@@ -5,7 +5,7 @@ namespace: concrnt
 helmCharts:
   - repo: https://charts.concrnt.net/
     name: concrnt
-    version: 0.4.2
+    version: 0.4.4
     releaseName: concrnt
     valuesFile: ./values.yaml
 
