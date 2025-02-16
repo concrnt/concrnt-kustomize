@@ -63,7 +63,7 @@ observability:
 
 search:
   enabled: false
-  image: ghcr.io/concrnt/cc-search:v0.0.0
+  image: ghcr.io/concrnt/cc-search:v0.1.1
   meilisearchKey: "concrnt-meilisearch"
   meilisearchUrl: "http://meilisearch:7700"
   meilisearchIdx: "concrnt"
