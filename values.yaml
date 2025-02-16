@@ -58,6 +58,21 @@ backup:
   aws_secret_access_key: ""
   aws_default_region: "ap-northeast-1"
 
+observability:
+  enabled: false
+
+search:
+  enabled: false
+  image: ghcr.io/concrnt/cc-search:v0.0.0
+  meilisearchKey: "concrnt-meilisearch"
+  meilisearchUrl: "http://meilisearch:7700"
+  meilisearchIdx: "concrnt"
+
+meilisearch:
+  enabled: false
+  image: getmeili/meilisearch:prototype-japanese-13
+  storage: "1Gi"
+
 monitoring:
   # サーバーのモニタリングの設定
   # 以下の設定先にメトリクス/トレースがremote-writeされます。
@@ -76,7 +91,7 @@ monitoring:
 # ドメインでメディアサーバーを提供する場合の設定
 mediaserver:
   enabled: false
-  image: ghcr.io/totegamma/cc-media-server:main
+  image: ghcr.io/totegamma/cc-media-server:v0.0.0
   bucketName: YOUR_BUCKET_NAME
   endpointUrl: https://xxxxxx.r2.cloudflarestorage.com
   accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
