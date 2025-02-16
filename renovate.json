@@ -3,10 +3,16 @@
   "packageRules": [
     {
       "matchManagers": ["helm-values"],
-      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "matchManagers": ["kustomize"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "pr"
     }
+
   ]
 }
