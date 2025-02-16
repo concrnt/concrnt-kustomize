@@ -21,9 +21,9 @@ server:
 concrnt:
   servicetype: ClusterIP
   # 各種コンテナのイメージの設定
-  appimage: ghcr.io/totegamma/ccapi:latest
-  gatewayimage: ghcr.io/totegamma/ccgateway:latest
-  webimage: ghcr.io/totegamma/ccwebui:latest
+  appimage: ghcr.io/totegamma/ccapi:v0.0.0
+  gatewayimage: ghcr.io/totegamma/ccgateway:v0.0.0
+  webimage: ghcr.io/totegamma/ccwebui:v0.0.0
   # サーバーのFQDNの設定
   # 一度起動したら変更しないでください
   fqdn: example.tld
@@ -91,7 +91,7 @@ mediaserver:
 # メモリやストレージの使用量が増加します。
 activitypub:
   enabled: false
-  image: ghcr.io/concrnt/ccworld-ap-bridge:latest
+  image: ghcr.io/concrnt/ccworld-ap-bridge:v0.0.0
   privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -99,5 +99,5 @@ activitypub:
 # 基本的に有効化することがおすすめです。
 hyperproxy:
   enabled: true
-  image: ghcr.io/concrnt/hyperproxy:latest
+  image: ghcr.io/concrnt/hyperproxy:v0.0.0
 
