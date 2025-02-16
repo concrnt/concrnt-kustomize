@@ -2,8 +2,8 @@
   "requiredStatusChecks": null,
   "packageRules": [
     {
-      "matchManagers": ["docker-compose"],
-      "matchDatasources": ["docker"],
+      "matchManagers": ["helm-values"],
+      "matchDatasources": ["helm"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "pr"
