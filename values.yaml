@@ -21,7 +21,7 @@ server:
 concrnt:
   servicetype: ClusterIP
   # 各種コンテナのイメージの設定
-  appimage: ghcr.io/totegamma/ccapi:v0.0.0
+  appimage: ghcr.io/totegamma/ccapi:v0.6.12
   gatewayimage: ghcr.io/totegamma/ccgateway:v0.0.0
   webimage: ghcr.io/totegamma/ccwebui:v0.6.12
   # サーバーのFQDNの設定
