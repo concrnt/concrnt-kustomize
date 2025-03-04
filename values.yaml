@@ -23,7 +23,7 @@ concrnt:
   # 各種コンテナのイメージの設定
   appimage: ghcr.io/totegamma/ccapi:v1.6.10
   gatewayimage: ghcr.io/totegamma/ccgateway:v1.6.10
-  webimage: ghcr.io/concrnt/web-dashboard:v0.0.2
+  webimage: ghcr.io/concrnt/web-dashboard:v0.0.5
   # サーバーのFQDNの設定
   # 一度起動したら変更しないでください
   fqdn: example.tld
