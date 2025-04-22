@@ -106,7 +106,7 @@ mediaserver:
 # メモリやストレージの使用量が増加します。
 activitypub:
   enabled: false
-  image: ghcr.io/concrnt/ccworld-ap-bridge:v0.6.0
+  image: ghcr.io/concrnt/ccworld-ap-bridge:v0.6.1
   privatekey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
