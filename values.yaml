@@ -22,7 +22,7 @@ concrnt:
   servicetype: ClusterIP
   # 各種コンテナのイメージの設定
   appimage: ghcr.io/concrnt/ccapi:v1.7.7
-  gatewayimage: ghcr.io/concrnt/ccgateway:v1.7.6
+  gatewayimage: ghcr.io/concrnt/ccgateway:v1.7.7
   webimage: ghcr.io/concrnt/web-dashboard:v0.0.6
   # サーバーのFQDNの設定
   # 一度起動したら変更しないでください
