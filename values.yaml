@@ -91,7 +91,7 @@ monitoring:
 # ドメインでメディアサーバーを提供する場合の設定
 mediaserver:
   enabled: false
-  image: ghcr.io/totegamma/cc-media-server:v0.5.0
+  image: ghcr.io/totegamma/cc-media-server:v0.6.0
   bucketName: YOUR_BUCKET_NAME
   endpointUrl: https://xxxxxx.r2.cloudflarestorage.com
   accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
